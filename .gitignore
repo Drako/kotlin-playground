@@ -1,0 +1,13 @@
+.gradle/
+build/
+
+*.iml
+.idea/libraries/
+.idea/checkstyle-idea.xml
+.idea/compiler.xml
+.idea/google-java-format.xml
+.idea/gradle.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
