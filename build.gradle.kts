@@ -13,6 +13,7 @@ repositories {
 
 object Versions {
   const val ASSERTK = "0.10"
+  const val GUICE = "4.2.0"
   const val JUNIT_JUPITER = "5.2.0"
   const val KOTLINX_COROUTINES = "0.23.4"
   const val MOCKITO_KOTLIN = "1.6.0"
@@ -36,6 +37,8 @@ dependencies {
   testCompile("org.junit.jupiter:junit-jupiter-api:${Versions.JUNIT_JUPITER}")
   testCompile("org.junit.jupiter:junit-jupiter-params:${Versions.JUNIT_JUPITER}")
   testRuntime("org.junit.jupiter:junit-jupiter-engine:${Versions.JUNIT_JUPITER}")
+
+  compile("com.google.inject:guice:${Versions.GUICE}")
 }
 
 java.sourceSets {
