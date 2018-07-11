@@ -1,22 +1,20 @@
 package com.grossweber.example.playground
 
+import assertk.assert
+import assertk.assertions.isEqualTo
+import assertk.assertions.isNotNull
 import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 
 class DojoTest {
   @Test
   fun `Dojo can be instantiated`() {
     val dojo = Dojo()
-    assertNotNull(dojo)
+    assert(dojo).isNotNull()
   }
 
   @Test
   fun `Dojo has an entry point`() {
     val interpret = Dojo.Companion::class.java.getDeclaredMethod("interpret", String::class.java)
-    assertEquals(
-        expected = String::class.java,
-        actual = interpret.returnType
-    )
+    assert(interpret.returnType).isEqualTo(String::class.java)
   }
 }

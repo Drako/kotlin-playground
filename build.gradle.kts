@@ -1,12 +1,21 @@
 import org.jetbrains.kotlin.gradle.dsl.Coroutines
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+  java
   kotlin("jvm") version "1.2.51"
 }
 
 repositories {
   mavenCentral()
+}
+
+object Versions {
+  const val ASSERTK = "0.10"
+  const val JUNIT_JUPITER = "5.2.0"
+  const val KOTLINX_COROUTINES = "0.23.4"
+  const val MOCKITO_KOTLIN = "1.6.0"
 }
 
 dependencies {
@@ -18,11 +27,31 @@ dependencies {
   testCompile(kotlin("test"))
   testCompile(kotlin("test-junit5"))
 
-  compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:0.23.4")
+  testCompile("com.nhaarman:mockito-kotlin-kt1.1:${Versions.MOCKITO_KOTLIN}")
 
-  testCompile("org.junit.jupiter:junit-jupiter-api:5.2.0")
-  testCompile("org.junit.jupiter:junit-jupiter-params:5.2.0")
-  testRuntime("org.junit.jupiter:junit-jupiter-engine:5.2.0")
+  testCompile("com.willowtreeapps.assertk:assertk:${Versions.ASSERTK}")
+
+  compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.KOTLINX_COROUTINES}")
+
+  testCompile("org.junit.jupiter:junit-jupiter-api:${Versions.JUNIT_JUPITER}")
+  testCompile("org.junit.jupiter:junit-jupiter-params:${Versions.JUNIT_JUPITER}")
+  testRuntime("org.junit.jupiter:junit-jupiter-engine:${Versions.JUNIT_JUPITER}")
+}
+
+java.sourceSets {
+  "main" {
+    java.srcDirs("src/main/code")
+    withConvention(KotlinSourceSet::class) {
+      kotlin.srcDirs("src/main/code")
+    }
+  }
+
+  "test" {
+    java.srcDirs("src/test/code")
+    withConvention(KotlinSourceSet::class) {
+      kotlin.srcDirs("src/test/code")
+    }
+  }
 }
 
 val test: Test by tasks
