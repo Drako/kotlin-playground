@@ -6,6 +6,7 @@ out/
 .idea/libraries/
 .idea/checkstyle-idea.xml
 .idea/compiler.xml
+.idea/encodings.xml
 .idea/google-java-format.xml
 .idea/gradle.xml
 .idea/misc.xml

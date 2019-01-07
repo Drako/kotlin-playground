@@ -5,20 +5,21 @@ import kotlin.jvm.java
 
 plugins {
   java
-  kotlin("jvm") version "1.3.0-rc-146"
-  id("org.jetbrains.kotlin.plugin.serialization") version "1.3.0-rc-146"
+  kotlin("jvm") version "1.3.11"
+  id("org.jetbrains.kotlin.plugin.serialization") version "1.3.11"
 }
 
 repositories {
   mavenCentral()
-  maven("https://dl.bintray.com/kotlin/kotlin-eap")
   maven("https://kotlin.bintray.com/kotlinx")
 }
 
 object Versions {
-  const val JUNIT_JUPITER = "5.3.1"
-  const val KOTLINX_COROUTINES = "0.30.2"
-  const val KOTLINX_SERIALIZATION = "0.8.2-rc13"
+  const val ASSERTK = "0.12"
+  const val JUNIT_JUPITER = "5.3.2"
+  const val KOTLINX_COROUTINES = "1.1.0"
+  const val KOTLINX_SERIALIZATION = "0.9.1"
+  const val MOCKITO_KOTLIN = "2.1.0"
 }
 
 dependencies {
@@ -36,6 +37,9 @@ dependencies {
   testCompile("org.junit.jupiter:junit-jupiter-api:${Versions.JUNIT_JUPITER}")
   testCompile("org.junit.jupiter:junit-jupiter-params:${Versions.JUNIT_JUPITER}")
   testRuntime("org.junit.jupiter:junit-jupiter-engine:${Versions.JUNIT_JUPITER}")
+
+  testCompile("com.willowtreeapps.assertk:assertk-jvm:${Versions.ASSERTK}")
+  testCompile("com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO_KOTLIN}")
 }
 
 project.sourceSets {

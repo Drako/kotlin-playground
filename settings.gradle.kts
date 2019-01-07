@@ -2,7 +2,8 @@ rootProject.name = "kotlin-playground"
 
 pluginManagement {
   repositories {
-    maven("https://dl.bintray.com/kotlin/kotlin-eap")
+    gradlePluginPortal()
+    mavenCentral()
   }
 
   resolutionStrategy {
