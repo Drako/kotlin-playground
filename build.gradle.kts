@@ -7,6 +7,7 @@ plugins {
   java
   kotlin("jvm") version "1.3.11"
   id("org.jetbrains.kotlin.plugin.serialization") version "1.3.11"
+  id("org.jetbrains.kotlin.plugin.allopen") version "1.3.11"
 }
 
 repositories {
@@ -63,4 +64,8 @@ test.useJUnitPlatform()
 
 tasks.withType(KotlinCompile::class.java).all {
   kotlinOptions.jvmTarget = "1.8"
+}
+
+allOpen {
+  annotation("guru.drako.example.playground.Open")
 }

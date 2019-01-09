@@ -9,6 +9,9 @@ out/
 .idea/encodings.xml
 .idea/google-java-format.xml
 .idea/gradle.xml
+.idea/kotlinc.xml
+.idea/markdown-navigator.xml
+.idea/markdown-navigator/
 .idea/misc.xml
 .idea/modules.xml
 .idea/uiDesigner.xml

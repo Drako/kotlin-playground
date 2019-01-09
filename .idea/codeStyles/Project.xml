@@ -10,6 +10,9 @@
       <option name="NAME_COUNT_TO_USE_STAR_IMPORT_FOR_MEMBERS" value="2147483647" />
       <option name="CONTINUATION_INDENT_IN_PARAMETER_LISTS" value="false" />
     </JetCodeStyleSettings>
+    <MarkdownNavigatorCodeStyleSettings>
+      <option name="RIGHT_MARGIN" value="72" />
+    </MarkdownNavigatorCodeStyleSettings>
     <codeStyleSettings language="JAVA">
       <indentOptions>
         <option name="INDENT_SIZE" value="2" />
