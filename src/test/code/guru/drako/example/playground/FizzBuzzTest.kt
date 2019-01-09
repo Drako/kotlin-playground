@@ -23,7 +23,7 @@ class FizzBuzzTest {
   companion object {
     @Suppress("unused")
     @JvmStatic
-    private fun divisableTestData(): Stream<Arguments> {
+    private fun divisibleTestData(): Stream<Arguments> {
       return Stream.of(
           Arguments.of(1, 1, true),
           Arguments.of(1, 2, false),
@@ -58,10 +58,10 @@ class FizzBuzzTest {
     assertEquals(expected = 100, actual = result.lines().size)
   }
 
-  @ParameterizedTest(name = "{index} ==> {0} isDivisableBy {1} should be {2}")
-  @MethodSource("divisableTestData")
+  @ParameterizedTest(name = "{index} ==> {0} isDivisibleBy {1} should be {2}")
+  @MethodSource("divisibleTestData")
   fun `Check is divisable`(numerator: Int, denominator: Int, expectedResult: Boolean) {
-    assertEquals(expectedResult, numerator isDivisableBy denominator)
+    assertEquals(expectedResult, numerator isDivisibleBy denominator)
   }
 
   @ParameterizedTest(name = "{index} ==> line {0} should be {1}")
