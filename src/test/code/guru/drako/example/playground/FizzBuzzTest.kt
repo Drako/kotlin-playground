@@ -41,6 +41,8 @@ class FizzBuzzTest {
           Arguments.of(15, 5, true)
       )
     }
+
+    fun foo() {}
   }
 
   private val instance = FizzBuzz()
