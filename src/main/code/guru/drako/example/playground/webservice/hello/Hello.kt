@@ -19,7 +19,7 @@ import kotlinx.serialization.json.JSON
 import kotlinx.serialization.stringify
 
 @UseExperimental(ImplicitReflectionSerializer::class)
-fun Application.module() {
+fun Application.helloModule() {
   install(DefaultHeaders)
   install(CallLogging)
   routing {
