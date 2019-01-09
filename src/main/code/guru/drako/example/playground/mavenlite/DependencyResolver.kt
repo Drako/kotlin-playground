@@ -3,7 +3,7 @@ package guru.drako.example.playground.mavenlite
 /**
  * @property repositories The repositories to search for dependencies.
  */
-class DependencyResolver(val repositories: Set<Repository>) {
+class DependencyResolver(val repositories: List<Repository>) {
   /**
    * Check the known [repositories] for the dependencies of the given [artifact].
    * Dependencies are resolved recursively.
@@ -12,7 +12,20 @@ class DependencyResolver(val repositories: Set<Repository>) {
    *
    * @throws ArtifactNotFoundException if the artifact could not be found anywhere.
    */
-  suspend fun collectDependenciesOf(artifact: Artifact) {
-    TODO("Collect dependencies for $artifact")
+  suspend fun collectDependenciesOf(
+    artifact: Artifact,
+    seen: MutableSet<Dependency> = mutableSetOf()
+  ) {
+    dependenyLoop@ for (dep in (artifact.dependencies - seen)) {
+      seen += dep
+      for (repo in repositories) {
+        val resolved = repo.queryArtifact(dep.groupId, dep.artifactId, dep.version)
+        if (resolved != null) {
+          collectDependenciesOf(resolved, seen)
+          continue@dependenyLoop
+        }
+      }
+      throw ArtifactNotFoundException("$dep")
+    }
   }
 }
