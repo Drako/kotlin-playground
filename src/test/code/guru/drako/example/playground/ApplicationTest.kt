@@ -17,7 +17,7 @@ class ApplicationTest {
     with(main) {
       assertEquals(expected = KVisibility.PUBLIC, actual = visibility)
       assertEquals(expected = 1, actual = valueParameters.size)
-      with (javaMethod!!) {
+      with(javaMethod!!) {
         assertEquals(expected = Array<String>::class.java, actual = parameterTypes[0])
         assertEquals(expected = Void.TYPE, actual = returnType)
       }

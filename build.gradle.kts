@@ -12,6 +12,7 @@ plugins {
 
 repositories {
   mavenCentral()
+  jcenter()
   maven("https://kotlin.bintray.com/kotlinx")
 }
 
@@ -20,7 +21,9 @@ object Versions {
   const val JUNIT_JUPITER = "5.3.2"
   const val KOTLINX_COROUTINES = "1.1.0"
   const val KOTLINX_SERIALIZATION = "0.9.1"
+  const val KTOR = "1.0.1"
   const val MOCKITO_KOTLIN = "2.1.0"
+  const val LOGBACK = "1.2.3"
 }
 
 dependencies {
@@ -41,6 +44,11 @@ dependencies {
 
   testCompile("com.willowtreeapps.assertk:assertk-jvm:${Versions.ASSERTK}")
   testCompile("com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO_KOTLIN}")
+
+  compile("io.ktor:ktor-server-netty:${Versions.KTOR}")
+  compile("io.ktor:ktor-html-builder:${Versions.KTOR}")
+  testCompile("io.ktor:ktor-server-test-host:${Versions.KTOR}")
+  compile("ch.qos.logback:logback-classic:${Versions.LOGBACK}")
 }
 
 project.sourceSets {
