@@ -16,13 +16,13 @@ class DependencyResolver(val repositories: List<Repository>) {
     artifact: Artifact,
     seen: MutableSet<Dependency> = mutableSetOf()
   ) {
-    dependenyLoop@ for (dep in (artifact.dependencies - seen)) {
+    dependencyLoop@ for (dep in (artifact.dependencies - seen)) {
       seen += dep
       for (repo in repositories) {
         val resolved = repo.queryArtifact(dep.groupId, dep.artifactId, dep.version)
         if (resolved != null) {
           collectDependenciesOf(resolved, seen)
-          continue@dependenyLoop
+          continue@dependencyLoop
         }
       }
       throw ArtifactNotFoundException("$dep")
