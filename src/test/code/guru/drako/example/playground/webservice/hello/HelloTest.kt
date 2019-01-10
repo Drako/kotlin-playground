@@ -9,6 +9,7 @@ import assertk.assertions.isEqualTo
 import guru.drako.example.playground.webservice.mainModule
 import io.ktor.http.ContentType
 import io.ktor.server.testing.contentType
+import io.ktor.server.testing.setBody
 import org.intellij.lang.annotations.Language
 
 class HelloTest {
@@ -27,7 +28,6 @@ class HelloTest {
 
     withTestApplication({
       mainModule()
-      helloModule()
     }) {
       handleRequest(HttpMethod.Get, "/").apply {
         assert(response.contentType()).isEqualTo(ContentType.Text.Html.withParameter("charset", "UTF-8"))

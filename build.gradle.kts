@@ -8,6 +8,7 @@ plugins {
   kotlin("jvm") version "1.3.11"
   id("org.jetbrains.kotlin.plugin.serialization") version "1.3.11"
   id("org.jetbrains.kotlin.plugin.allopen") version "1.3.11"
+  application
 }
 
 repositories {
@@ -24,7 +25,7 @@ object Versions {
   const val JUNIT_JUPITER = "5.3.2"
   const val KOTLINX_COROUTINES = "1.1.0"
   const val KOTLINX_SERIALIZATION = "0.9.1"
-  const val KTOR = "1.0.1"
+  const val KTOR = "1.1.1"
   const val MOCKITO_KOTLIN = "2.1.0"
   const val LOGBACK = "1.2.3"
 }
@@ -48,9 +49,10 @@ dependencies {
   testCompile("com.willowtreeapps.assertk:assertk-jvm:${Versions.ASSERTK}")
   testCompile("com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO_KOTLIN}")
 
-  compile("io.ktor:ktor-server-netty:${Versions.KTOR}")
+  compile("io.ktor:ktor-server-tomcat:${Versions.KTOR}")
   compile("io.ktor:ktor-html-builder:${Versions.KTOR}")
   compile("io.ktor:ktor-freemarker:${Versions.KTOR}")
+  compile("io.ktor:ktor-auth:${Versions.KTOR}")
   testCompile("io.ktor:ktor-server-test-host:${Versions.KTOR}")
   compile("ch.qos.logback:logback-classic:${Versions.LOGBACK}")
 
@@ -67,7 +69,7 @@ project.sourceSets {
   }
 
   getByName("test") {
-    java.srcDirs("src/main/code")
+    java.srcDirs("src/test/code")
     withConvention(KotlinSourceSet::class) {
       kotlin.srcDirs("src/test/code")
     }
@@ -83,4 +85,8 @@ tasks.withType(KotlinCompile::class.java).all {
 
 allOpen {
   annotation("guru.drako.example.playground.Open")
+}
+
+application {
+  mainClassName = "io.ktor.server.tomcat.EngineMain"
 }

@@ -1,5 +1,6 @@
 package guru.drako.example.playground
 
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
@@ -72,6 +73,13 @@ class RomanNumeralsConverterTest {
   fun `Arabic to Roman should fail if number out of bounds`(n: Int) {
     assertThrows<IllegalArgumentException> {
       converter.arabic2roman(n)
+    }
+  }
+
+  @Test
+  fun `Back and forth should work`() {
+    for (n in 1..3999) {
+      assertEquals(expected = n, actual = converter.roman2arabic(converter.arabic2roman(n)))
     }
   }
 }

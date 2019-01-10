@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Run Webservice" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="io.ktor.server.netty.EngineMain" />
+    <option name="MAIN_CLASS_NAME" value="io.ktor.server.tomcat.EngineMain" />
     <module name="kotlin-playground.main" />
     <method v="2">
       <option name="Make" enabled="true" />
