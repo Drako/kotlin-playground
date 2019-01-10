@@ -1,4 +1,6 @@
-package guru.drako.example.playground.webservice.hello
+package guru.drako.example.playground.webservice.message
+
+import guru.drako.example.playground.webservice.message.Message
 
 object Messages {
   val messages = listOf(

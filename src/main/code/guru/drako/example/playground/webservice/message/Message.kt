@@ -1,4 +1,4 @@
-package guru.drako.example.playground.webservice.hello
+package guru.drako.example.playground.webservice.message
 
 import kotlinx.serialization.Serializable
 

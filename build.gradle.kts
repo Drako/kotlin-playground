@@ -47,6 +47,7 @@ dependencies {
 
   compile("io.ktor:ktor-server-netty:${Versions.KTOR}")
   compile("io.ktor:ktor-html-builder:${Versions.KTOR}")
+  compile("io.ktor:ktor-freemarker:${Versions.KTOR}")
   testCompile("io.ktor:ktor-server-test-host:${Versions.KTOR}")
   compile("ch.qos.logback:logback-classic:${Versions.LOGBACK}")
 }
