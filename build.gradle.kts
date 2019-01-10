@@ -14,10 +14,13 @@ repositories {
   mavenCentral()
   jcenter()
   maven("https://kotlin.bintray.com/kotlinx")
+  maven("https://kotlin.bintray.com/exposed")
 }
 
 object Versions {
   const val ASSERTK = "0.12"
+  const val EXPOSED = "0.11.2"
+  const val H2 = "1.4.197"
   const val JUNIT_JUPITER = "5.3.2"
   const val KOTLINX_COROUTINES = "1.1.0"
   const val KOTLINX_SERIALIZATION = "0.9.1"
@@ -50,6 +53,9 @@ dependencies {
   compile("io.ktor:ktor-freemarker:${Versions.KTOR}")
   testCompile("io.ktor:ktor-server-test-host:${Versions.KTOR}")
   compile("ch.qos.logback:logback-classic:${Versions.LOGBACK}")
+
+  compile("org.jetbrains.exposed:exposed:${Versions.EXPOSED}")
+  compile("com.h2database:h2:${Versions.H2}")
 }
 
 project.sourceSets {

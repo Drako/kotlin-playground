@@ -10,10 +10,14 @@ import kotlinx.serialization.json.JSON
 import kotlinx.serialization.list
 
 fun Application.messageModule() {
+  DatabaseFactory.init()
+
+  val messageService = MessageService()
+
   routing {
     get("/messages") {
       call.respondText(
-          JSON.stringify(Message.serializer().list, Messages.messages),
+          JSON.stringify(Message.serializer().list, messageService.getAllMessages()),
           ContentType.Application.Json
       )
     }
@@ -22,9 +26,7 @@ fun Application.messageModule() {
       call.respondText(
           JSON.stringify(
               Message.serializer().list,
-              call.parameters["author"]?.let { author ->
-                Messages.messages.filter { it.author == author }
-              } ?: Messages.messages
+              messageService.getMessagesByAuthor(call.parameters["author"])
           ),
           ContentType.Application.Json
       )

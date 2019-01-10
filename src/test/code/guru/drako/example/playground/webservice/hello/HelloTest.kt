@@ -6,6 +6,7 @@ import io.ktor.server.testing.withTestApplication
 import kotlin.test.Test
 import assertk.assert
 import assertk.assertions.isEqualTo
+import guru.drako.example.playground.webservice.mainModule
 import io.ktor.http.ContentType
 import io.ktor.server.testing.contentType
 import org.intellij.lang.annotations.Language
@@ -25,6 +26,7 @@ class HelloTest {
       |""".trimMargin()
 
     withTestApplication({
+      mainModule()
       helloModule()
     }) {
       handleRequest(HttpMethod.Get, "/").apply {
