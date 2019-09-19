@@ -14,7 +14,7 @@ repositories {
   maven("https://kotlin.bintray.com/kotlinx")
 }
 
-object Versions {
+object Version {
   const val ASSERTK = "0.20"
   const val JACKSON = "2.9.9"
   const val JUNIT = "5.5.2"
@@ -28,15 +28,20 @@ dependencies {
   implementation(kotlin("reflect"))
   testImplementation(kotlin("test-junit5"))
 
-  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.KOTLINX_COROUTINES}")
-  implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.KOTLINX_SERIALIZATION}")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.KOTLINX_COROUTINES}")
+  implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Version.KOTLINX_SERIALIZATION}")
 
-  testImplementation("org.junit.jupiter:junit-jupiter-api:${Versions.JUNIT}")
-  testImplementation("org.junit.jupiter:junit-jupiter-params:${Versions.JUNIT}")
-  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${Versions.JUNIT}")
+  testImplementation("org.junit.jupiter:junit-jupiter-api:${Version.JUNIT}")
+  testImplementation("org.junit.jupiter:junit-jupiter-params:${Version.JUNIT}")
+  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${Version.JUNIT}")
 
-  testCompile("com.willowtreeapps.assertk:assertk-jvm:${Versions.ASSERTK}")
-  testCompile("com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.MOCKITO_KOTLIN}")
+  testCompile("com.willowtreeapps.assertk:assertk-jvm:${Version.ASSERTK}")
+  testCompile("com.nhaarman.mockitokotlin2:mockito-kotlin:${Version.MOCKITO_KOTLIN}")
+
+  implementation("com.fasterxml.jackson.core:jackson-core:${Version.JACKSON}")
+  implementation("com.fasterxml.jackson.core:jackson-databind:${Version.JACKSON}")
+  implementation("com.fasterxml.jackson.core:jackson-annotations:${Version.JACKSON}")
+  implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${Version.JACKSON}")
 }
 
 project.sourceSets {
