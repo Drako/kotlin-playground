@@ -1,5 +1,9 @@
 rootProject.name = "kotlin-playground"
 
+val knownPlugins = mapOf(
+    "org.jetbrains.kotlin.plugin.serialization" to "org.jetbrains.kotlin:kotlin-serialization"
+)
+
 pluginManagement {
   repositories {
     gradlePluginPortal()
@@ -8,8 +12,8 @@ pluginManagement {
 
   resolutionStrategy {
     eachPlugin {
-      if (requested.id.id == "org.jetbrains.kotlin.plugin.serialization") {
-        useModule("org.jetbrains.kotlin:kotlin-serialization:${requested.version}")
+      knownPlugins[requested.id.id]?.let { groupAndArtifact ->
+        useModule("$groupAndArtifact:${requested.version}")
       }
     }
   }
