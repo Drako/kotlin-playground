@@ -33,8 +33,13 @@ class ScrabbleTest {
     @JvmStatic
     fun testWords() = Stream.of(
         Arguments.of("APE", 5),
+        Arguments.of("BREAD", 8),
+        Arguments.of("CHEESE", 11),
+        Arguments.of("DRAGON", 8),
+        Arguments.of("HOUSE", 8),
+        Arguments.of("MATRIX", 15),
         Arguments.of("MONKEY", 15),
-        Arguments.of("MATRIX", 15)
+        Arguments.of("PACHYCEPHALOSAURUS", 35)
     )
   }
 
